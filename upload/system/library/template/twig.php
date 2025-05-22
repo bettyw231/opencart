@@ -91,7 +91,11 @@ class Twig {
 		}
 
 		// We have to remove the root web directory.
-		$file = substr($file, strlen($this->root) + 1);
+		//$file = substr($file, strlen($this->root) + 1);
+		
+		$this->root = realpath(dirname($file)); // Use actual file location as base
+
+
 
 		if ($code) {
 			// render from modified template code
